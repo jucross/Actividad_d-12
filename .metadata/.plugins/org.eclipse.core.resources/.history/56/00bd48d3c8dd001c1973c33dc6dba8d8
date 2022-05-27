@@ -1,0 +1,36 @@
+package com.example.demo;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ProductoTest {
+
+	
+	
+	@Test
+	public void testListarProducto() {
+		
+	}
+	
+	@Test
+	public void testProductoById() {
+		
+	}
+	
+	@Test
+	public void testNuevoProducto() {
+		
+	}
+	
+	@Test
+	public void testActualizarProducto() {
+		
+	}
+	
+	@Test
+	public void testEliminarProducto() {
+		
+	}
+
+}

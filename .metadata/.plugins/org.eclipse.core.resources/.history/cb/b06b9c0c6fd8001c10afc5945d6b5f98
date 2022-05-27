@@ -1,0 +1,45 @@
+package com.example.demo.services;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Producto;
+import com.example.demo.repository.ProductoRepository;
+
+
+@Service
+public class ProductoService {
+	
+	@Autowired
+	ProductoRepository productoRepository;
+	
+	public ArrayList<Producto> ListarCategoria(){
+		return (ArrayList<Producto>) productoRepository.findAll();
+	}
+	
+	public Optional<Producto> CategoriaById(int pro_id) {
+		return productoRepository.findById(pro_id);
+	}
+	
+	public Producto NuevaCategoria (Producto pro_util) {
+		return productoRepository.save(pro_util);
+	}
+	
+	public Producto ActualizarCategoria (Producto pro_util) {
+		return productoRepository.save(pro_util);
+	}
+	
+	public boolean EliminarCategoria (int pro_id) {
+		try {
+			productoRepository.deleteById(pro_id);
+			return true;
+		}
+		catch(Exception err){
+			return false;
+		}
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.example.demo;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.controller.CategoriaController;
+
+public class CategoriaTest {
+
+	@Autowired
+	private CategoriaController catController;
+	
+	
+	@Test
+	public void testListarCategoria() {
+		
+	}
+
+}

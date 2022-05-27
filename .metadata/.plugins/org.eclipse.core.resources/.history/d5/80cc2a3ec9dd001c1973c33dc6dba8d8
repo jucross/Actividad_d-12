@@ -1,0 +1,68 @@
+package com.example.demo;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.controller.CategoriaController;
+import com.example.demo.controller.ProductoController;
+import com.example.demo.entity.Categoria;
+import com.example.demo.entity.Producto;
+
+public class ProductoTest {
+
+	
+	
+	@Test
+	public void testListarProducto() {
+		ArrayList<Producto> productos = proController.ListarProducto();
+		assertThat(productos).size().isGreaterThan(0);
+	}
+	
+	@Test
+	public void testProductoById() {
+		Optional<Producto> producto = proController.ProductoById(2);
+		assertNotNull(producto);
+	}
+	
+	@Test
+	public void testNuevoProducto() {
+		
+	}
+	
+	
+	@Test
+	public void testEliminarProducto() {
+		
+	}
+
+	
+	@Autowired
+	private ProductoController proController;
+	
+	
+	
+	@Test
+	public void testCategoriaById() {
+		
+	}
+	
+	@Test
+	public void testNuevaCategoria() {
+		Categoria nuevaCategoria = proController.NuevaCategoria(new Categoria(10,"Test nombre","Test descripcion"));
+		assertThat(nuevaCategoria.getCat_id()).isGreaterThan(0);
+	}
+	
+	@Test
+	public void testEliminarCategoria() {
+		proController.EliminarCategoria(2);
+		Optional<Categoria> categoria = proController.CategoriaById(2);
+		assertThat(categoria).isNull();
+	}
+
+}
